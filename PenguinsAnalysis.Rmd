@@ -290,3 +290,5 @@ b)Share your repo with a partner and try to run their data pipeline. partner's G
 c) Reflect on running their code (300-500 words)
 
 d) Reflect on your own code based on your experience with your partner's code and their review of yours (300-500 words)
+
+end of assessment
