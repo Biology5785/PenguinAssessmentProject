@@ -1,5 +1,5 @@
 ---
-title: "PenguinsAnalysis"
+title: "Distinct lay dates in three species of Pygoscelis penguin"
 output:
   pdf_document: 
     latex_engine: xelatex
@@ -291,4 +291,3 @@ c) Reflect on running their code (300-500 words)
 
 d) Reflect on your own code based on your experience with your partner's code and their review of yours (300-500 words)
 
-end of assessment
