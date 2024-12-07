@@ -288,10 +288,28 @@ It is important to understand what factors affect lay date, particularly in the 
 
 **QUESTION 3**
 
-a)Upload to GitHub
+**a) Upload to GitHub**
 
-b)Share your repo with a partner and try to run their data pipeline. partner's GitHub link:
+**b) Share your repo with a partner and try to run their data pipeline. Partner's GitHub link:** <https://github.com/Tsavoboi/Homework_For_Palmers_Penguins>
 
-c)  Reflect on running their code (300-500 words)
+**c) Reflect on running their code (300-500 words)**
 
-d)  Reflect on your own code based on your experience with your partner's code and their review of yours (300-500 words)
+Overall, my partner’s code was good – it was comprehensible and it ran. They added comments to many parts of the code, and this helped me to understand what they were doing at each step.
+
+Almost all of the code ran.
+
+-   I had to install one package, but that was not a problem.
+
+-   Because the clean dataset was saved in a folder called ‘data’, I had to download the R Project file, the .Rmd file, and also create a folder called ‘data’ so that the clean dataset would actually save. This was not much of an issue, but it created a bit more work than having everything you need in just one self-contained .Rmd file.
+
+-   They wrote some code to save the figure as .png, but this was specific to their own file path. Hence, this code did not run on my computer, but again, this would not be too difficult to change the file path to fit my own documents.
+
+To make the code more understandable and reproducible, I would suggest using more indentation when coding figures. Having the code all on one long line can make it difficult to read at times, so I would suggest splitting the code over several lines. This would also allow them to add comments to particular sections of the long line of code.
+
+In figure 1, they plotted body mass and flipper length, but they chose to connect the datapoints from the same species together. This is a slightly odd choice given that the body mass (on the x-axis) does not change over time, so I am not sure why they connected the points together like a line graph. It might be better to simply have the datapoints of different species in different colours, but not joined together.
+
+Their choice of linear regression made sense given that they were correlating two continuous variables. However, the choice of an ANOVA does not seem quite right given that the explanatory variable (body mass) is a continuous variable, and an ANOVA is usually done with a categorial explanatory variable.
+
+Overall, however, it was easy enough to follow what they were doing because of the combination of written text and commented code. I think it would be relatively easy to change their code if I needed to.
+
+**d) Reflect on your own code based on your experience with your partner's code and their review of yours (300-500 words)**
