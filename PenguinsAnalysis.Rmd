@@ -1,31 +1,31 @@
 ---
-title: "Distinct lay dates in three species of Pygoscelis penguin"
+title: "Distinct lay dates in three species of *Pygoscelis* penguin"
 output:
+  html_document: default 
   pdf_document: 
     latex_engine: xelatex
-  html_document: default 
 date: "2024-11-30" 
 ---
 
 ## Introduction
 
-The genus Pygoscelis contains three different species of penguin: Adelie (*Pygoscelis adeliae*), Chinstrap (*Pygoscelis antarcticus*) and Gentoo (*Pygoscelis papua*), which occur in overlapping ranges throughout the marine ecosystem of the Western Antarctic Peninsula ^1^. The species generally have similar life history patterns: they return to breeding sites around October, to coincide with the start of the Antarctic summer. The partners then undergo courtship, after which they lay (usually two) eggs. After incubation and finally hatching, the parents will take turns between ‘guarding’ the chick and foraging for food^2^. While the general life history pattern between species is similar, there are also some major differences between them in terms of migration patterns, fasting behaviour and diet^2^.
+The genus Pygoscelis contains three different species of penguin: Adelie (*Pygoscelis adeliae*), Chinstrap (*Pygoscelis antarcticus*) and Gentoo (*Pygoscelis papua*), which occur in overlapping ranges throughout the marine ecosystem of the Western Antarctic Peninsula^1^. The penguins' breeding season begins when they return to nesting sites around October, to coincide with the start of the Antarctic summer. The partners then undergo courtship, after which they lay two eggs. After incubation and finally hatching, the parents will take turns between guarding the chick and foraging for food^2^. While the general life history pattern between species is similar, there are also some major differences between them in terms of migration patterns, fasting behaviour and diet^2^. These differences in life history likely impact the optimal lay date for each species.
 
-For example, Adelie penguins migrate long distances to common overwintering grounds on the ice. When they return to summer breeding grounds, they fast for three weeks during courtship and egg laying^3^. Gentoo penguins, on the other hand, overwinter on the near shore and forage in the sea year-round. The female fasts for just one week before egg laying^3^.
+Adelie penguins migrate long distances to common overwintering grounds on the ice. When they return to summer breeding grounds, they fast for three weeks during courtship and egg laying^3^. On the other hand, Gentoo penguins overwinter on the near shore and forage in the sea all year round. The female fasts for just one week before egg laying^3^.
 
-All three species forage in ice-free waters during the summer, but previous research has shown that they have different diets^4^. For example, Chinstrap penguins have a higher consumption of krill, while Gentoo birds also eat krill but have a higher proportion of fish in their diet. When they do eat fish, the Chinstrap diet is dominated by one pelagic species and two mesopelagic species^4^. The Gentoo fish diet is dominated by a combination of pelagic and benthic fish species^4^.
+All three species forage in ice-free waters during the summer, but previous research has shown that they have different diets^4^. For example, Chinstrap penguins have a higher consumption of krill, and the fish they eat tend to come from one pelagic species and two mesopelagic species^4^. In constrast, Gentoo birds also eat krill but have a higher proportion of fish in their diet. These fish tend to be a combination of pelagic and benthic species^4^.
 
-For all birds, it is important to align the food demand of the chick with food availability in the environment. Species that are better at making this alignment should have greater reproductive success^3^. This is particularly important for penguins, not just because they must factor in a fasting period pre-laying, but also because the Antarctic is a highly seasonal environment where food availability and weather varies greatly throughout the year^5^. It has previously been shown that penguins that delay breeding from the optimum have reduced reproductive success ^6^ because of the limited time available to provision food to offspring before food resources are depleted^3^.
+For all birds, it is important to align the food demand of the chick with food availability in the environment. Species that are better at making this alignment should have greater reproductive success^3^. This is particularly important for penguins, not just because they must factor in a fasting period pre-laying, but also because the Antarctic is a highly seasonal environment where food availability and weather varies greatly throughout the year^5^. It has previously been shown that penguins that delay breeding from the optimum have reduced reproductive success^6^ because of the limited time available to provision food to offspring before food resources are depleted^3^.
 
 ## Hypothesis
 
-Therefore, given the differences between the species in migration patterns, fasting behaviour, and diet, all of which are likely to influence trade-offs for the optimal timing of egg laying, I hypothesize that the three species will have distinct laying dates.
+Given the differences between the species in migration patterns, fasting behaviour, and diet, all of which are likely to influence trade-offs for the optimal timing of egg laying, I hypothesize that the three species will have distinct egg-laying dates.
 
 ## Methods
 
-A 2014 study by Gorman et al studied Pygoscelis penguins on the Palmer Archipelago, located west of the Antarctic Peninsula, near Anvers island^1^. They collected morphological data on nesting penguins to study sexual dimorphism, but at the same time they recorded the clutch initiation date (CID) of each nesting pair. This data can now be freely accessed in the ‘palmerpenguins’ package in R. The study nests were located on three different islands - Biscoe (64^o^ 489S, 63^o^ 469W), Torgersen (64^o^ 469S, 64^o^ 049W), and Dream (64^o^ 439S, 64^o^ 139W). The study ran for three years from 2007-2009 and in total recorded 76 Adelie nests, 34 chinstrap nests, and 62 Gentoo nests^1^.
+Gorman et al (2014) studied Pygoscelis penguins on the Palmer Archipelago, located west of the Antarctic Peninsula, near Anvers island^1^. This study collected morphological data on nesting penguins to study sexual dimorphism, but at the same time they recorded the clutch initiation date (CID) of each nesting pair. This data can now be freely accessed in the ‘palmerpenguins’ package in R. The study nests were located on three different islands - Biscoe (64^o^ 489S, 63^o^ 469W), Torgersen (64^o^ 469S, 64^o^ 049W), and Dream (64^o^ 439S, 64^o^ 139W). The study ran for three years from 2007-2009 and in total recorded 76 Adelie nests, 34 chinstrap nests, and 62 Gentoo nests^1^.
 
-I used this dataset to examine the CID of the different species, and look at how this varies across the three years of the study. First, I converted the calendar dates into Julian dates so that ‘lay date’ became a continuous variable. Julian dates give each day of the year a number from 1 to 365, starting from the 1st January that year. I created some exploratory figures, and then used ANOVA to test for differences in means between species. A statistically significant result from an ANOVA does not tell us which group means are different from which other group means, and therefore I used a Tukey-Kramer test to find out which groups have significantly different means.
+I used this dataset to examine the CID of the different species, and look at how this varies across the three years of the study. First, I converted the calendar dates into Julian dates so that ‘lay date’ became a continuous variable. Julian dates give each day of the year a number from 1 to 365, starting from the 1st January. I created some exploratory figures, and then used ANOVA to test for differences in means between species. A statistically significant result from an ANOVA does not tell us which group means are different from each other, and therefore I used a Tukey-Kramer test to find out which groups have significantly different means.
 
 ```{r message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -45,13 +45,14 @@ library(ggsignif) #for adding significance stars to plots
 ```
 
 ```{r}
-#load the raw data and save it
+#Load the raw data and save it
 penguins_raw <- read_csv(here("data", "penguins_raw.csv"), show_col_types = FALSE)
 write_csv(penguins_raw, here("data", "penguins_raw.csv"))
 ```
 
 ```{r}
-#clean the data and save it
+#Clean the data and save it
+#The cleaning function cleans up column names, removes the 'comments' column, shortens the species names, and removes empty columns, rows and NA values.
 source(here("functions", "cleaning.R"))
 penguins_clean <- cleaning_penguins(penguins_raw)
 write_csv(penguins_clean, here("data", "PenguinsClean.csv"))
@@ -75,7 +76,7 @@ penguins_clean$year_egg_laid <- format(penguins_clean$date_egg, "%Y")
 
 **QUESTION 1: Creating a bad exploratory figure**
 
-```{r fig.align = "center", fig.cap = "A boxplot of the mean lay date of the three species of Pygoscelis penguin"}
+```{r fig.align = "center", fig.cap = "A bar chart of the mean lay date of the three species of Pygoscelis penguin"}
 #calculate mean lay date for the three different penguin species
 mean_lay_dates <- penguins_clean %>%
   group_by(species) %>%
@@ -106,11 +107,11 @@ This Figure 1 shows the mean late day for all three different penguin species. W
 
 -   It does not show the raw datapoints. This means that we have no idea of the sample size in each group, and we cannot see the distribution of the data. A lot of statistical analyses assume normally distributed data, and therefore without seeing the distribution we do not know whether any subsequent statistical tests are valid.
 
--   The scale on the y-axis is misleading, suggesting that there is very little difference in mean lay date between species. However, if we were simply to re-scale the y-axis we would see that there is in fact a 10-day difference in the mean lay date of Adelie penguins (x ̅ = 317) compared to Chinstrap penguins (x ̅ = 327).
+-   The scale on the y-axis is misleading, suggesting that there is very little difference in mean lay date between species. However, if we were simply to re-scale the y-axis so that it ran from 300 to 330 we would see that there is in fact a 10-day difference in the mean lay date of Adelie penguins (x ̅ = 317) compared to Chinstrap penguins (x ̅ = 327).
 
 -   The bar chart does not include any error bars, and so we do not know how confident we are in these estimates of mean lay date for each species.
 
-The Lay date of different species would be much better displayed using a boxplot and jittered data points to show the raw data, or boxplot and violin plot to show the distribution of the data. A label including the sample size for each group would also be helpful.
+-   The lay date of different species would be much better displayed using a boxplot and jittered data points to show the raw data, or boxplot and violin plot to show the distribution of the data. A label including the sample size for each group would also be helpful.
 
 **QUESTION 2: Creating a good exploratory figure**
 
@@ -161,9 +162,7 @@ grid.text("B", x = 0.57, y = 0.95, gp = gpar(fontsize = 12)) #Adds label 'B' to 
 
 ```
 
-We can see from figure 2.A that lay date seems to differ by species. The Adelie penguins seem to have the earliest CID, while the Chinstrap penguins seem to have a much later CID. Gentoos have a much broader distribution of CID.
-
-The data for Adelie and Chinstrap penguins appear to be approximately normally distributed, but the Gentoo data has so much more variation that it appears to differ more from the normal distribution.
+We can see from figure 2.A that lay date seems to differ by species. Adelie penguins have the earliest CID, while the Chinstrap penguins have a much later CID. Gentoos have a much broader distribution of CID. The data for Adelie and Chinstrap penguins appears to be slightly bi-modal, while the Gentoo data clearly deviates from the normal distribution. Various data transformations (natural log, log~10~, square root, and arcsine) were tested but none made the distributions more normal.
 
 From figure 2.B we can see that across the three years of the study, the CID remained roughly consistent for Adelies and Chinstraps, but Gentoo birds showed an earlier CID in 2008 compared to the other years of the study.
 
@@ -240,7 +239,7 @@ TukeyHSD(aov(date_vs_year_model))
 
 **Lay date vs species**
 
-We can see from figure 3 that the three species have distinct lay dates from each other. Indeed, the ANOVA gave a P-value of 2.2 x 10^-16^, and the Tukey-Kramer test showed that all pairwise comparisons were significant. We already know that the timing of CID is important for penguins, because birds that delay breeding have lower reproductive success^6^. Therefore, can conclude that the different species of Pygoscelid penguin have different optimal lay dates.
+We can see from Figure 3 that the three species have distinct lay dates from each other. Indeed, the ANOVA gave a p-value of 2.2 x 10^-16^, and the Tukey-Kramer test showed that all pairwise comparisons were significant. We already know that the timing of CID is important for penguins, because birds that delay breeding have lower reproductive success^6^. Therefore, we can conclude that the different species of Pygoscelid penguin have different optimal lay dates.
 
 Food available to feed the chick might influence the optimal lay date, and since the species have different summer diets, perhaps these differences in lay date reflect the availability of different food sources throughout the Antarctic summer. Future research could examine the chick-provisioning diet of the three species, and see whether CID is timed to correlate with maximum abundance of those food sources when the chick requires most food.
 
@@ -250,7 +249,7 @@ The different migration patterns of the birds might also influence lay date. Ade
 
 **Lay date vs year in Gentoo birds**
 
-The second ANOVA, looking at Gentoo lay date across the three years, gave a significant result with a P-value of 2.2 x 10^-16^. The Tukey-Kramer test confirmed that all three years had distinct lay dates, but the most significant comparisons were those involving the year 2008, while the comparison 2009-2007 was less significant.
+The second ANOVA, looking at Gentoo lay date across the three years, gave a significant result with a p-value of 2.2 x 10^-16^. The Tukey-Kramer test confirmed that all three years had distinct lay dates, but the most significant comparisons were those involving the year 2008, while the comparison 2009-2007 was less significant.
 
 In 2014, Gorman et al reported that 2008 was the lowest sea ice season since 1979, whereas 2007 had intermediate sea ice, and 2009 had high sea ice^1^. Indeed, Hinke et al reported in 2012 that Gentoo birds appear to be able to plastically adjust their lay date in response to changing temperature^3^. Therefore, it seems likely that Gentoos have a wider distribution of lay dates and can therefore plastically adjust their CID. 2008 was a particularly warm year, with lower sea ice, and therefore these birds laid earlier.
 
@@ -264,9 +263,9 @@ Overall, this analysis has produced two conclusions:
 
 2.  Gentoo penguins laid earlier in 2008, suggesting they might have more plasticity in their CID.
 
-We have discussed how many biotic factors are likely to influence the optimum lay date for each species: migration, fasting, diet and competition/coexistence between species. Many abotic factors might also be important: we have discussed how sea ice coverage and temperature might explain the earlier lay date of Gentoos in 2008, but many other abotic factors such as rainfall and snowfall are also likely to be important in determining the optimal CID.
+We have discussed how factors such as migration, fasting, diet, and interspecific competition are likely to influence the optimum lay date for each species. Many abotic factors might also be important: we have discussed how sea ice coverage and temperature might explain the earlier lay date of Gentoos in 2008, but many other abotic factors such as rainfall and snowfall are also likely to be important in determining the optimal CID.
 
-Future research should focus on unpicking exactly which of these biotic and abiotic factors influence lay date, and this might explain exactly why lay date differs between species. In this study, we have only been able to hypothesise that these factors might be important. A long-term dataset of CID over many years (i.e at least 10 years) and temperature would allow a more detailed analysis such as a mixed-effects model on whether temperature affects CID, with ‘year’ as a random effect.
+Future research should focus on understanding exactly which of these factors (both life-history traits and abiotic factors) influence lay date, and this might explain exactly why lay date differs between species. In this study, we have only been able to hypothesise that these factors might be important. A longer-term dataset over 10 years or more, combined with temperature recordings would allow a more detailed analysis of how temperature affects lay date. This could be done using a mixed-effects model, with ‘year’ as a random effect.
 
 It is important to understand what factors affect lay date, particularly in the context of warming temperatures in the Antarctic. The limited analysis done here suggests that Gentoo birds might be more resilient to climate change than Adelie and Chinstrap penguins.
 
