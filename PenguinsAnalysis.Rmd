@@ -312,3 +312,5 @@ Their choice of linear regression made sense given that they were correlating tw
 Overall, however, it was easy enough to follow what they were doing because of the combination of written text and commented code. I think it would be relatively easy to change their code if I needed to.
 
 **d) Reflect on your own code based on your experience with your partner's code and their review of yours (300-500 words)**
+
+writing here
