@@ -293,9 +293,7 @@ It is important to understand what factors affect lay date, particularly in the 
 
 **a) Upload to GitHub. My repo link:**
 
-<https://github.com/HannahGlendell/PenguinAssessmentProject>
-
-I still need to change my username
+[https://github.com/Biology5785/PenguinAssessmentProject](https://github.com/HannahGlendell/PenguinAssessmentProject){.uri}
 
 **b) Share your repo with a partner and try to run their data pipeline. Partner's GitHub link:** <https://github.com/Tsavoboi/Homework_For_Palmers_Penguins>
 
