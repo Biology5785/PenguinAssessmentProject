@@ -361,5 +361,3 @@ print(results_plot)
 ```
 
 Overall, I have learnt how it is important to add comments to code to make it clear what is being done at each step, but not so many comments that it becomes difficult to read the code. Using indentation and splitting up the code over several lines makes it much easier to follow. Organising the R.project into different folders such as ‘data’, ‘functions’ and ‘figures’ breaks the whole analysis down into manageable chunks.
-
-End of assessment
