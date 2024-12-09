@@ -1,9 +1,9 @@
 ---
 title: "Distinct lay dates in three species of *Pygoscelis* penguin"
 output:
-  html_document: default 
   pdf_document: 
     latex_engine: xelatex
+  html_document: default 
 date: "2024-11-30" 
 ---
 
@@ -76,7 +76,7 @@ penguins_clean$year_egg_laid <- format(penguins_clean$date_egg, "%Y")
 
 **QUESTION 1: Creating a bad exploratory figure**
 
-```{r fig.align = "center", fig.cap = "A bar chart of the mean lay date of the three species of Pygoscelis penguin"}
+```{r fig.align = "center"}
 #calculate mean lay date for the three different penguin species
 mean_lay_dates <- penguins_clean %>%
   group_by(species) %>%
@@ -98,12 +98,14 @@ bad_plot <- ggplot(
   scale_fill_manual(values = species_colours) +
   labs( 
        x = "Species", 
-       y = "Mean Lay Date") +
+       y = "Mean Julian Lay Date") +
   theme_bw()
 bad_plot
 ```
 
-This Figure 1 shows the mean late day for all three different penguin species. While it is technically correct, there are number of issues with it that make it misleading:
+*Figure 1: A bar chart of the mean lay date of the three species of Pygoscelis penguin*
+
+Figure 1 shows the mean late day for all three different penguin species. While it is technically correct, there are number of issues with it that make it misleading:
 
 -   It does not show the raw datapoints. This means that we have no idea of the sample size in each group, and we cannot see the distribution of the data. A lot of statistical analyses assume normally distributed data, and therefore without seeing the distribution we do not know whether any subsequent statistical tests are valid.
 
@@ -115,7 +117,7 @@ This Figure 1 shows the mean late day for all three different penguin species. W
 
 **QUESTION 2: Creating a good exploratory figure**
 
-```{r fig.align = "center", fig.width = 10, fig.height = 5, fig.cap = "The distribution of lay dates for three species of Pygoscelis penguin. A) violin plot and boxplots of the lay date for the three species. B) Violin plot of the lay dates across the three years of the study."}
+```{r fig.align = "center", fig.width = 10, fig.height = 5}
 #lay date vs species
 lay_date_vs_species <- ggplot(
     data = penguins_clean, 
@@ -162,7 +164,9 @@ grid.text("B", x = 0.57, y = 0.95, gp = gpar(fontsize = 12)) #Adds label 'B' to 
 
 ```
 
-We can see from figure 2.A that lay date seems to differ by species. Adelie penguins have the earliest CID, while the Chinstrap penguins have a much later CID. Gentoos have a much broader distribution of CID. The data for Adelie and Chinstrap penguins appears to be slightly bi-modal, while the Gentoo data clearly deviates from the normal distribution. Various data transformations (natural log, log~10~, square root, and arcsine) were tested but none made the distributions more normal.
+*Figure 2: The distribution of lay dates for three species of Pygoscelis penguin. A) violin plot and boxplots of the lay date for the three species. B) Violin plot of the lay dates across the three years of the study. Boxplots show median, interquartile range, and maximum and minimum values. Violin plots show the density distribution of the data.*
+
+We can see from figure 2.A that lay date seems to differ by species. Adelie penguins have the earliest CID, while the Chinstrap penguins have a much later CID. Gentoos have a much broader distribution of CID. The data for Adelie and Chinstrap penguins appears to be slightly bi-modal, while the Gentoo data clearly deviates from the normal distribution. Various data transformations (natural log, log~10~, square root, and arcsine) were tested but none made the distributions more normal. Therefore, I still went ahead and ran ANOVA on the data because the test is reasonably robust to violations of normality, however I acknowledge that this is a limitation of my analysis.
 
 From figure 2.B we can see that across the three years of the study, the CID remained roughly consistent for Adelies and Chinstraps, but Gentoo birds showed an earlier CID in 2008 compared to the other years of the study.
 
@@ -203,7 +207,7 @@ results_plot <- ggplot(penguins_clean,
   scale_fill_manual(values = species_colours, guide = "none")  +
   labs(
     x = "Species",
-    y = "Lay Date") +
+    y = " Julian Lay Date") +
   geom_signif(comparisons = list(c("Adelie", "Chinstrap"),
                                  c("Chinstrap", "Gentoo"), 
                                  c("Adelie", "Gentoo")),
@@ -216,7 +220,7 @@ results_plot <- ggplot(penguins_clean,
 results_plot
 ```
 
-Figure 3. A boxplot showing the results of the Tukey-Kramer test. A p-value of \<0.001 is shown with '\*\*\*', showing that all three species had significantly distinct CID from all other species.
+*Figure 3. A boxplot showing the results of the Tukey-Kramer test. A p-value of \<0.001 is shown with '\*\*\*', showing that all three species had significantly distinct CID from all other species. Boxplots show median, interquartile range and maximum and minimum values.*
 
 **Statistical analysis for lay date vs year for Gentoo penguins**
 
@@ -287,7 +291,9 @@ It is important to understand what factors affect lay date, particularly in the 
 
 **QUESTION 3**
 
-**a) Upload to GitHub**
+**a) Upload to GitHub. My repo link:**
+
+<https://github.com/HannahGlendell/PenguinAssessmentProject>
 
 **b) Share your repo with a partner and try to run their data pipeline. Partner's GitHub link:** <https://github.com/Tsavoboi/Homework_For_Palmers_Penguins>
 
@@ -305,7 +311,7 @@ Almost all of the code ran.
 
 To make the code more understandable and reproducible, I would suggest using more indentation when coding figures. Having the code all on one long line can make it difficult to read at times, so I would suggest splitting the code over several lines. This would also allow them to add comments to particular sections of the long line of code.
 
-In figure 1, they plotted body mass and flipper length, but they chose to connect the datapoints from the same species together. This is a slightly odd choice given that the body mass (on the x-axis) does not change over time, so I am not sure why they connected the points together like a line graph. It might be better to simply have the datapoints of different species in different colours, but not joined together.
+In figure 1, they plotted body mass and flipper length, but they chose to connect the datapoints from the same species together. This is a slightly odd choice given that the body mass (on the x-axis) does not change over time, so I am not sure why they connected the points together like a line graph. It might have been better to simply have the datapoints of different species in different colours, but not joined together.
 
 Their choice of linear regression made sense given that they were correlating two continuous variables. However, the choice of an ANOVA does not seem quite right given that the explanatory variable (body mass) is a continuous variable, and an ANOVA is usually done with a categorial explanatory variable.
 
@@ -313,4 +319,45 @@ Overall, however, it was easy enough to follow what they were doing because of t
 
 **d) Reflect on your own code based on your experience with your partner's code and their review of yours (300-500 words)**
 
-writing here
+My partner suggested that it might be better to not include the cleaning function in a separate file because this would allow the whole code to be run by simply downloading the .rRmd file, rather than having to separately also download the cleaning.R script. I agree with my partner that there are pros and cons to saving the cleaning function separately, such as allowing the cleaning of other datasets, but it also makes downloading and running the data pipeline a bit more complicated.
+
+They also suggested saving the figures separately as a .png file to allow the figures to be extracted for evaluation and publication. I think this would be a good idea, and so upon their feedback I have included the code to do this below:
+
+```{r warning = FALSE}
+library(ragg)#package for saving figures as .png
+
+agg_png("figures/bad_plot.png",
+        width = 20, #width of figure in cm
+        height = 20, #height of figure in cm
+        units = "cm", 
+        res = 300, #resolution
+        scaling = 1)
+print(bad_plot)
+
+  
+agg_png("figures/lay_date_vs_year.png",
+        width = 20, 
+        height = 20, 
+        units = "cm", 
+        res = 300, 
+        scaling = 1)
+print(lay_date_vs_year)
+
+agg_png("figures/lay_date_vs_species.png",
+        width = 20, 
+        height = 20, 
+        units = "cm", 
+        res = 300, 
+        scaling = 1)
+print(lay_date_vs_species)
+
+agg_png("figures/results_plot.png",
+        width = 20, 
+        height = 20, 
+        units = "cm", 
+        res = 300, 
+        scaling = 1)
+print(results_plot)
+```
+
+Overall, I have learnt how it is important to add comments to code to make it clear what is being done at each step, but not so many comments that it becomes difficult to read the code. Using indentation and splitting up the code over several lines makes it much easier to follow. Organising the R.project into different folders such as ‘data’, ‘functions’ and ‘figures’ breaks the whole analysis down into manageable chunks.
